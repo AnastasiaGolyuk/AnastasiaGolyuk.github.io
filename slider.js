@@ -1,5 +1,9 @@
-var indexStorage = localStorage.getItem("last_slide");
-var slideIndex = parseInt(indexStorage,10);
+var slideIndex=0;
+
+if (localStorage.getItem("last_slide")!=null){
+    var indexStorage = localStorage.getItem("last_slide");
+    slideIndex = parseInt(indexStorage,10);
+}
 
 var myTimer;
 
@@ -41,7 +45,12 @@ addEventListener("keydown",keyboardInput);
 
 window.addEventListener("load",function() {
     play_btn = document.getElementById('auto_play');
-    play_btn.innerHTML=localStorage.getItem("auto_play");
+    if (localStorage.getItem("auto_play")!=null){
+        play_btn.innerHTML=localStorage.getItem("auto_play");
+    }
+    else {
+        play_btn.innerHTML="pause";
+    }
     play_btn.addEventListener('click', check);
     showSlides(slideIndex);
     if (play_btn.innerHTML=="pause"){
