@@ -19,6 +19,7 @@ function keyboardInput(e){
         case "ArrowLeft": 
             console.log("left");
             plusSlides(-1);
+            clearInterval(myTimer);
             if (play_btn.innerHTML=="pause"){
                myTimer = setInterval(function(){plusSlides(1)}, 1700);
             }
@@ -27,6 +28,7 @@ function keyboardInput(e){
         case "ArrowRight":
             console.log("right");
             plusSlides(1);
+            clearInterval(myTimer);
             if (play_btn.innerHTML=="pause"){
                myTimer = setInterval(function(){plusSlides(1)}, 1700);
             }
